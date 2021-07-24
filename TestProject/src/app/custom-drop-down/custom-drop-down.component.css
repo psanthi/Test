@@ -1,0 +1,29 @@
+p {
+    margin: 0px;
+    text-align: center;
+    position: relative;
+  }
+  .phover {
+    cursor: pointer;
+    max-height: 100px;
+    overflow: auto;
+    position: absolute;
+  }
+  span {
+    text-align: center;
+    display: block;
+  }
+  span:hover {
+    color: red;
+    background-color: grey;
+  }
+  select{
+    width: 170px;
+  }
+  input {
+    width: 150px;
+  }
+  option {
+    display: none;
+    background-color: white;
+  }

@@ -1,0 +1,25 @@
+<div class="card-container">
+  <a class="card" target="_blank" rel="noopener" (click)="nextView('custom')">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"></svg>
+
+    <span>Custom DropDown</span>
+
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"></svg>
+  </a>
+
+  <a class="card" target="_blank" rel="noopener" (click)="nextView('multi')">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="16" height="24" viewBox="0 0 24 24"></svg>
+
+    <span>Multi Select DropDown</span>
+
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"></svg>
+  </a>
+
+</div>
+<app-custom-drop-down *ngIf="custom" [options]="countries" [filter]="applyFilter" (onChange)="onChange($event)"></app-custom-drop-down>
+<app-multi-select *ngIf="multi" [options]="countries" [filter]="applyFilter" (onChange)="onChange($event)">
+</app-multi-select>
+<div *ngIf="selectedItems.length > 0" style="text-align: center; font-size: 20px;" >
+  <label style="font-weight: 600;">SelectedItems:</label>
+  <p *ngFor="let item of selectedItems" style="margin-left: 10%;">{{item.value}}</p>
+</div>

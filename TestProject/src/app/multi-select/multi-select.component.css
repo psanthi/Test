@@ -1,0 +1,18 @@
+ng-multiselect-dropdown {
+    margin: 30%;
+}
+::ng-deep .multiselect-dropdown {
+    width: 180px !important;
+}
+::ng-deep .dropdown-list ul{
+    /* max-height: 150px; */
+    overflow-x: hidden !important;
+    /* overflow-y: auto !important; */
+}
+::ng-deep .item2 {
+    max-height: 120px;
+    overflow-y: auto !important;
+}
+/* ::ng-deep .multiselect-item-checkbox {
+    display: none;
+} */
