@@ -11,9 +11,10 @@ export class MultiSelectComponent implements OnInit {
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   selectedItems!: { label: string; value: string; }[];
   dropdownSettings!: IDropdownSettings;
-  i: number = 0;
+
+  constructor() { }
+
   ngOnInit() {
-    this.i = 0
     this.selectedItems = [];
     this.dropdownSettings = {
       singleSelection: false,
@@ -29,14 +30,17 @@ export class MultiSelectComponent implements OnInit {
     };
   }
   onItemSelect(item: any) {
-    this.onChange.emit(item);
+    // this.onChange.emit(item);
     this.selectedItems.push(item)
     console.log(this.selectedItems, 'selectedItems');
   }
   onDropDownClose() {
     console.log('qwertyu')
-    // this.onChange.emit(this.selectedItems);
+    this.onChange.emit(this.selectedItems);
   }
-  constructor() { }
-
+  onItemDeSelect(item: any) {
+    console.log(item, 'deSelectedItems');
+    this.selectedItems = this.selectedItems.filter((b) => b.value != item.value)
+    console.log(this.selectedItems, 'deSelectedItems');
+  }
 }

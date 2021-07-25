@@ -13,6 +13,3 @@ ng-multiselect-dropdown {
     max-height: 120px;
     overflow-y: auto !important;
 }
-/* ::ng-deep .multiselect-item-checkbox {
-    display: none;
-} */

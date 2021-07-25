@@ -1,10 +1,12 @@
 <div style="position: relative">
-        <select (click)="toggle($event);">
-          <option>{{fieldValue}}</option>
-        </select>
+    <!-- <select (click)="toggle($event);">
+        <option>{{fieldValue}}</option>
+    </select> -->
+    <input type="text" placeholder="Select an item" [value]="fieldValue" (click)="toggle($event);" readonly />
     <div *ngIf="expand" class="phover">
-      <input *ngIf="filter" type="text" placeholder="Enter Text" (change)="fieldChange($event)"/> 
-      <span *ngFor="let item of duplicateData" value="item.label" (click)="selectedItem(item.label)" >
-        {{item.value}}</span>
+        <input *ngIf="filter" type="text" placeholder="Enter Text" (change)="fieldChange($event)" />
+        <span *ngFor="let item of duplicateData" value="item.label" (blur)="expand = false;"
+            (click)="selectedItem(item.label)">
+            {{item.value}}</span>
     </div>
-  </div>
+</div>

@@ -9,8 +9,9 @@ export class AppComponent {
   custom: boolean = false;
   multi: boolean = false;
   countries: { label: string; value: string; }[] | undefined;
-  selectedItems: any = [] ;
+  selectedItems: any = [];
   applyFilter = true;
+  summ: boolean = false;
   ngOnInit() {
     this.selectedItems = [];
     this.countries = [
@@ -22,19 +23,22 @@ export class AppComponent {
     ];
   }
   onChange(val: any) {
-    // this.multi = false;
-    console.log(this.selectedItems.filter((b: { label: string; value: string; }) => b.value != val.value), 'app');
-    if(this.multi) {
-    this.selectedItems.push(val);
-    } else if(this.custom){
+    if (this.multi) {
+      this.selectedItems.push(val);
+      this.summ = (this.selectedItems.length > 1) ? false : true;
+      console.log(this.selectedItems.length)
+    } else if (this.custom) {
       this.selectedItems = [];
       this.selectedItems.push(val);
+      this.summ = false;
     }
-    console.log(this.selectedItems, 'selectedItems')
+    this.selectedItems = this.selectedItems[this.selectedItems.length - 1]
+    console.log(this.selectedItems, 'appSelectedItems')
   }
   nextView(type: string) {
+    this.summ = true;
     this.selectedItems = [];
-    switch(type) {
+    switch (type) {
       case 'custom':
         this.custom = true;
         this.multi = false;
